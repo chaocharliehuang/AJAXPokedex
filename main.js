@@ -10,7 +10,8 @@ $("img").click(function() {
     var imgID = $(this).attr('id');
     var url = "http://pokeapi.co/api/v1/pokemon/" + imgID;
     $.get(url, function(res) {
-        var infoHTML = "<h2>" + res.name + "</h2>";
+        var infoHTML = "<div id='pic-info'>"
+        infoHTML += "<h2>" + res.name + "</h2>";
         infoHTML += "<img src='http://pokeapi.co/media/img/" + imgID + ".png'>";
 
         infoHTML += "<h4>Types</h4><ul>";
@@ -24,7 +25,11 @@ $("img").click(function() {
 
         infoHTML += "<h4>Weight</h4>";
         infoHTML += res.weight;
+        infoHTML += "</div>"
 
         $(".pokemon-info").html(infoHTML);
+        $("#pic-info").hide();
+        $("#pic-info").fadeIn();
+
     }, 'json');
 });
