@@ -1,12 +1,10 @@
 for (var i = 1; i <= 151; i++) {
-    var imgHTML = "<a href='#top-of-page'>";
-    imgHTML += "<img src='http://pokeapi.co/media/img/" + i + ".png'";
+    var imgHTML = "<img src='http://pokeapi.co/media/img/" + i + ".png'";
     imgHTML += " id='" + i + "'>";
-    imgHTML += "</a>";
     $('.pokedex').append(imgHTML);
 }
 
-$("img").click(function() {
+$("img").mouseover(function() {
     var imgID = $(this).attr('id');
     var url = "http://pokeapi.co/api/v1/pokemon/" + imgID;
     $.get(url, function(res) {
